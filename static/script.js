@@ -63,6 +63,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (mode === "heart_eye") {
                     console.log("目♥ が押されました");
                     await gathering(ROBOT_ID);
+                } else if (mode === "sad_image") {
+                    console.log("悲しい が押されました");
+                    const mediaId = btn.dataset.mediaId;
+                    await play_media(ROBOT_ID, mediaId, false);
                 } else if (mode === "heart_image") {
                     console.log("画像♥ が押されました");
                     const mediaId = btn.dataset.mediaId;
@@ -159,7 +163,7 @@ function applyMediaMapToButtons(map) {
             btn.dataset.mediaId = map[label];
         }
     });
-    document.querySelectorAll('.mode-button[data-mode="heart_image"]').forEach((btn) => {
+    document.querySelectorAll('.mode-button[data-mode="heart_image"], .mode-button[data-mode="sad_image"]').forEach((btn) => {
         const label = btn.dataset.label;
         if (!label) return;
         if (map[label]) btn.dataset.mediaId = map[label];
@@ -197,9 +201,11 @@ async function buildMediaConfigUI() {
 
     // ②現在のボタン（デフォルト or 保存値反映後）をベースにUI生成
     const saved = getSavedMediaMap();
-    const targetButtons = [...document.querySelectorAll(".play-button"), ...document.querySelectorAll('.mode-button[data-mode="heart_image"]')].filter(
-        (b) => b.dataset.label && b.dataset.mediaId
-    );
+    const targetButtons = [
+        ...document.querySelectorAll(".play-button"),
+        ...document.querySelectorAll('.mode-button[data-mode="heart_image"]'),
+        ...document.querySelectorAll('.mode-button[data-mode="sad_image"]'),
+    ].filter((b) => b.dataset.label && b.dataset.mediaId);
 
     targetButtons.forEach((btn) => {
         const label = btn.dataset.label;

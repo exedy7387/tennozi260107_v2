@@ -10,11 +10,6 @@ const video_url = "wss://exedy-robo.com/ws/video/"; //ストリーミングURL
 // const ws_url = "wss://robot-dev.net/websocket/"; //遠隔操作URL
 // const video_url = "wss://robot-dev.net/ws/video/"; //ストリーミングURL
 
-// //keisuu.net
-// const url = 'https://exedy.keisuu.net/v1/robots/';  //基本URL
-// const ws_url = 'wss://exedy.keisuu.net/websocket/';  //遠隔操作URL
-// const video_url = 'wss://exedy.keisuu.net/ws/video/';  //ストリーミングURL
-
 const timeout = 20;
 const duration = 10;
 const api_key = "sumagi1007";

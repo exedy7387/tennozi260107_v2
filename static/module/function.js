@@ -559,36 +559,6 @@ async function stop_all(id) {
     }
 }
 
-// chatGPT
-async function gpt(data_text) {
-    const apiKey = "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";
-    var prompt = `
-    あなたは役に立つアシスタントです。とてもフレンドリーに会話します。2文までで話して。相手は子供です。
-    `;
-    var params = {
-        model: "gpt-4o",
-        messages: [{ role: "system", content: prompt }],
-    };
-    const options = {
-        headers: {
-            Authorization: "Bearer " + apiKey,
-            "Content-Type": "application/json",
-        },
-    };
-    params.messages.push({ role: "user", content: data_text });
-    try {
-        const result = await axios.post("https://api.openai.com/v1/chat/completions", params, options);
-        console.log(result);
-        var response = result["data"]["choices"][0]["message"]["content"];
-        console.log(response);
-        params.messages.push({ role: "assistant", content: response });
-        console.log(params);
-        return response;
-    } catch {
-        console.log(error);
-    }
-}
-
 // //status確認用関数
 // async function checkStatus(id, service_id, callback,start_time) {
 //   try {
@@ -634,13 +604,7 @@ async function checkStatus(id, service_id, callback) {
                 });
             });
             while (status !== "SUCCEEDED") {
-                if (
-                    status === "PREEMPTING" ||
-                    status === "ABORTED" ||
-                    status === "REJECTED" ||
-                    status === "PREEMPTED" ||
-                    status === "TIMEOUT"
-                ) {
+                if (status === "PREEMPTING" || status === "ABORTED" || status === "REJECTED" || status === "PREEMPTED" || status === "TIMEOUT") {
                     console.log("Error:" + status);
                     throw new Error("失敗しました。 状態：" + status);
                 }
@@ -651,13 +615,7 @@ async function checkStatus(id, service_id, callback) {
             }
         } else {
             while (status !== "SUCCEEDED") {
-                if (
-                    status === "PREEMPTING" ||
-                    status === "ABORTED" ||
-                    status === "REJECTED" ||
-                    status === "PREEMPTED" ||
-                    status === "TIMEOUT"
-                ) {
+                if (status === "PREEMPTING" || status === "ABORTED" || status === "REJECTED" || status === "PREEMPTED" || status === "TIMEOUT") {
                     console.log("Error:" + status);
                     throw new Error("失敗しました。 状態：" + status);
                 }

@@ -20,46 +20,37 @@
         <main id="mainContent">
             <div class="control-grid">
                 <!-- 1行目 -->
-                <button class="control-button play-button" data-label="自己紹介" data-media-id="7e451faa-dbee-4f0e-a161-e4d12a2ba158">
+                <button class="control-button play-button pos-intro" data-label="自己紹介" data-media-id="7e451faa-dbee-4f0e-a161-e4d12a2ba158">
                     <span class="title">自己紹介</span>
                     <span class="subtitle">やっほー！ぼくの名前はネイボ！警察ヒーローロボットやで！...</span>
                 </button>
-                <button class="stop-button">再生停止</button>
 
-                <!-- 2行目 -->
-                <button class="control-button play-button" data-label="第一問" data-media-id="6197bd20-c268-4a75-bc5c-4e9e6ab1a184">
-                    <span class="title">第一問</span>
-                    <span class="subtitle">これは丸でっしゃろ！困ってるんや...</span>
+                <!-- 2行目（4つ横並び） -->
+                <button class="control-button play-button pos-q1" data-label="第一問" data-media-id="80e2cf56-2b4e-4de8-8110-ee505ccd338e">
+                    <span class="title">第一問</span><span class="subtitle">これは丸でっしゃろ！困ってるんや...</span>
                 </button>
-                <button class="control-button play-button" data-label="第二問" data-media-id="7c886ad6-9ff1-4122-bb67-0f0e484db78c">
-                    <span class="title">第二問</span>
-                    <span class="subtitle">これは丸でっせ！お巡りさん、事故です...</span>
+                <button class="control-button play-button pos-q2" data-label="第二問" data-media-id="e54cc00a-ae40-48c4-854b-05b891220e47">
+                    <span class="title">第二問</span><span class="subtitle">これは丸でっせ！お巡りさん、事故です...</span>
                 </button>
-
-                <!-- 3行目 -->
-                <button class="control-button play-button" data-label="第三問" data-media-id="572b2659-4a32-4af6-b851-bdac37761507">
-                    <span class="title">第三問</span>
-                    <span class="subtitle">答えは丸やわ！警察官見たいし1回ぐらい...</span>
+                <button class="control-button play-button pos-q3" data-label="第三問" data-media-id="07e63d07-f11f-4c51-92a5-724e6e729cf7">
+                    <span class="title">第三問</span><span class="subtitle">答えは丸やわ！警察官見たいし1回ぐらい...</span>
                 </button>
-                <button class="control-button play-button" data-label="第四問" data-media-id="4c1a550c-9ee1-41bf-8ae3-52de8b2853db">
-                    <span class="title">第四問</span>
-                    <span class="subtitle">今度こそは丸でっせ！今まで全部バツや...</span>
+                <button class="control-button play-button pos-q4" data-label="第四問" data-media-id="b3bc2353-8e01-4f3a-b886-52c65896916c">
+                    <span class="title">第四問</span><span class="subtitle">今度こそは丸でっせ！今まで全部バツや...</span>
                 </button>
 
-                <!-- 4行目（3つ並べる） -->
-                <div class="control-row-3">
-                    <button class="control-button mode-button" data-mode="heart_eye">
-                        <span class="title">目♥</span>
-                    </button>
+                <!-- 3行目（4つ横並び） -->
+                <button class="control-button mode-button pos-sad" data-mode="sad_image" data-label="悲しい" data-media-id="f8fb7496-70b5-47da-b8ee-0a2863e03f52">
+                    <span class="title">悲しい</span>
+                </button>
+                <button class="control-button mode-button pos-heart-eye" data-mode="heart_eye"><span class="title">目♥</span></button>
+                <button class="control-button mode-button pos-heart-img" data-mode="heart_image" data-label="画像♥" data-media-id="2e43a4ab-b7a9-457b-b78a-b56e7f3d381e">
+                    <span class="title">画像♥</span>
+                </button>
+                <button class="control-button mode-button pos-normal" data-mode="normal"><span class="title">通常</span></button>
 
-                    <button class="control-button mode-button" data-mode="heart_image" data-label="画像♥" data-media-id="2e43a4ab-b7a9-457b-b78a-b56e7f3d381e">
-                        <span class="title">画像♥</span>
-                    </button>
-
-                    <button class="control-button mode-button" data-mode="normal">
-                        <span class="title">通常</span>
-                    </button>
-                </div>
+                <!-- 4行目 -->
+                <button class="stop-button pos-stop">再生停止</button>
             </div>
         </main>
 
