@@ -480,34 +480,42 @@ select:focus {
 } */
 
 /* 4列グリッドにして、行ごとの配置を指定する */
+/* .control-grid {
+    width: min(1200px, 95vw);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    align-items: stretch;
+} */
+/* 全体は縦に並べる */
 .control-grid {
     width: min(1200px, 95vw);
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* ★ 4列 */
+    grid-template-columns: 1fr; /* 縦積み */
     gap: 20px;
-    align-items: stretch;
 }
 
-/* 1行目：自己紹介を中央に（2列分） */
-.pos-intro {
-    grid-column: 2 / span 2;
+/* 上2行：完全3等分（同じ幅） */
+.grid-3cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.pos-intro,
+.pos-q1,
+.pos-q2,
+.pos-q3,
+.pos-q4,
+.pos-last {
+    grid-column: auto;
 }
 
-/* 2行目：第一問〜第四問（それぞれ1列） */
-.pos-q1 {
-    grid-column: 1;
+/* 3行目：4等分にする */
+.mode-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
-.pos-q2 {
-    grid-column: 2;
-}
-.pos-q3 {
-    grid-column: 3;
-}
-.pos-q4 {
-    grid-column: 4;
-}
-
-/* 3行目：悲しい顔 / 目♥ / 画像♥ / 通常 */
 .pos-sad {
     grid-column: 1;
     background-color: #5bc0eb;
@@ -517,11 +525,11 @@ select:focus {
 }
 .pos-heart-eye {
     grid-column: 2;
-    background-color: #f48fb1; /* ピンク */
+    background-color: #f48fb1;
 }
 .pos-heart-img {
     grid-column: 3;
-    background-color: #f48fb1; /* ピンク */
+    background-color: #f48fb1;
 }
 .pos-heart-eye:hover,
 .pos-heart-img:hover {
@@ -536,4 +544,18 @@ select:focus {
     grid-column: 1 / -1;
 }
 
-/* 4列になったので、control-row-3 は不要（残っててもOKだけど使わない） */
+#mode-badge {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}

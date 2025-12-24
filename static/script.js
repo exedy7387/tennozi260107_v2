@@ -6,7 +6,7 @@ let lastClickTime = 0;
 let validUsers = [];
 
 const ROBOT_ID = "SR05_2502110006";
-// const ROBOT_ID = "multi2";
+// const ROBOT_ID = "chimera5096";
 
 // ===== メディア設定（長押しで表示） =====
 const header = document.getElementById("header");
